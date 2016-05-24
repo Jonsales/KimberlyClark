@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_background_list_process"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"
+        android:paddingBottom="10dp"
+        android:gravity="center|bottom">
+        <TextView
+            android:id="@+id/text_date_process"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="02 mar"
+            android:textColor="@color/grey_letter_list"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:background="@drawable/background_edit">
+        <TextView
+            android:id="@+id/text_details_process"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Processo 01"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="10dp"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+</LinearLayout>

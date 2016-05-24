@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_background_uploads"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_edit">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4"
+        android:padding="25dp">
+        <TextView
+            android:id="@+id/text_details_uploads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prcesso 01"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.6"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal"
+            android:paddingRight="20dp">
+            <TextView
+                android:id="@+id/text_status_uploads"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sucesso"
+                android:textSize="12dp"
+                android:textColor="@color/white"
+                android:background="@drawable/background_status_success"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_background_img_reload"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:paddingRight="20dp"
+            >
+            <ImageView
+                android:id="@+id/img_reload_uploads"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/reload"/>
+        </LinearLayout>
+
+        </LinearLayout>
+
+</LinearLayout>

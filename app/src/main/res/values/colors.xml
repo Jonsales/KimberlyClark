@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1692C6</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_style_default">#1692C6</color>
+    <color name="color_style_focused">#FF1482B1</color>
+    <color name="color_style_second">#77D2F8</color>
+    <color name="color_blue_floating_button">#06F0FF</color>
+    <color name="color_blue_floating_button_focused">#06d7e4</color>
+    <color name="color_blue_letter_time">#6BCAF3</color>
+    <color name="white">#ffffff</color>
+    <color name="grey">#DDDDDD</color>
+    <color name="grey_transparent">#47dddddd</color>
+    <color name="grey_letter_list">#AAAAAA</color>
+    <color name="grey_letter">#B2B2B2</color>
+    <color name="grey_dark_letter">#777777</color>
+    <color name="grey_background">#CCCCCC</color>
+    <color name="grey_button">#AFAFAF</color>
+    <color name="grey_button_focused">#9C9C9C</color>
+    <color name="blue_light">#06F0FF</color>
+    <color name="yellow_status">#eeb722</color>
+    <color name="red_status">#DC2222</color>
+    <color name="green_status">#06AC1A</color>
+    <color name="black">#000000</color>
+
+</resources>

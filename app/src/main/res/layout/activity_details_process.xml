@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.john.kimberlyclark.DetailsProcessActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/linear_toolbar_info_final"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:fitsSystemWindows="true"
+                >
+                <include layout="@layout/toolbar_default" android:id="@+id/toolbar_details"/>
+                <LinearLayout
+                    android:id="@+id/linear_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_style_default"
+                    android:gravity="right"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:paddingRight="100sp">
+                    <TextView
+                        android:id="@+id/text_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_blue_letter_time"
+                        android:text="00:00"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/grey_background">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="10sp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/text_machine_details"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Maquina 1"
+                            android:textColor="@color/black"
+                            android:layout_marginRight="10sp"
+                            android:textSize="16sp"
+                            />
+                        <Button
+                            android:id="@+id/btn_call_historic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Histórico"
+                            android:paddingLeft="30sp"
+                            android:paddingRight="30sp"
+                            android:paddingTop="5sp"
+                            android:paddingBottom="5sp"
+                            android:background="@drawable/background_button_grey"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textAllCaps="false"
+                            android:textAlignment="center"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10sp"
+                        android:paddingTop="10sp"
+                        android:paddingRight="20sp"
+                        android:paddingLeft="20sp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:gravity="left"
+                            android:text="@string/number"
+                            android:textSize="16sp"
+                            android:textColor="@color/grey_dark_letter"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:text="@string/activity"
+                            android:textSize="16sp"
+                            android:textColor="@color/grey_dark_letter"
+                            android:textAllCaps="true"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:gravity="right"
+                            android:text="@string/date"
+                            android:textSize="16sp"
+                            android:textColor="@color/grey_dark_letter"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/list_activitys"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/linear_toolbar_info_final"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                >
+            </ListView>
+
+        </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:src="@drawable/ic_refresh_black_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@id/linear_toolbar"
+        app:backgroundTint="@color/color_blue_floating_button"
+        app:fab_shadow="true"
+        app:layout_anchorGravity="bottom|end|right" />
+</android.support.design.widget.CoordinatorLayout>

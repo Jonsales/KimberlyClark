@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/linear_background_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="20sp"
+        android:paddingLeft="20sp">
+        <TextView
+            android:id="@+id/text_number_row_activity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="left"
+            android:layout_gravity="center"
+            android:text="@string/number"
+            android:textSize="18sp"
+            android:textColor="@color/grey_dark_letter"
+            android:textAllCaps="true"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:orientation="horizontal"
+            android:background="@drawable/background_edit"
+            >
+            <TextView
+                android:id="@+id/text_row_activity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:text="@string/activity"
+                android:textSize="18sp"
+                android:paddingBottom="20sp"
+                android:paddingTop="20sp"
+                android:textColor="@color/grey_dark_letter"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:id="@+id/text_date_row_activity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:gravity="center|right"
+                android:text="@string/date"
+                android:textSize="18sp"
+                android:textColor="@color/grey_dark_letter"
+                android:textAllCaps="true"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
