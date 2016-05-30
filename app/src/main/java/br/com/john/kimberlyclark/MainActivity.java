@@ -102,4 +102,14 @@ public class MainActivity extends AppCompatActivity {
         textInfoMachine.setText("");
         textInfoSystem.setText("");
     }
+
+    @Override
+    public void onBackPressed() {
+        int position = mViewPagerHome.getCurrentItem();
+        if (position == 0) {
+            MainActivity.this.finish();
+        } else {
+            mViewPagerHome.setCurrentItem(0);
+        }
+    }
 }

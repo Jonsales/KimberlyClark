@@ -1,5 +1,6 @@
 package br.com.john.kimberlyclark;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.design.widget.FloatingActionButton;
@@ -7,7 +8,17 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.eazegraph.lib.charts.ValueLineChart;
+import org.eazegraph.lib.models.ValueLinePoint;
+import org.eazegraph.lib.models.ValueLineSeries;
 
 import java.util.ArrayList;
 
@@ -21,6 +32,11 @@ import br.com.john.kimberlyclark.Services.AllActivitys;
 
 public class DetailsProcessActivity extends AppCompatActivity {
     ListView listView;
+    public static LinearLayout linearInfoActivity;
+    public static TextView textCancel, textSave;
+    public static EditText editStatus, editLimits, editComments;
+    public static ImageView imgButtonPrevious, imgButtonNext;
+    Button buttonHistoric, buttonHistoricInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +46,23 @@ public class DetailsProcessActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         listView = (ListView) findViewById(R.id.list_activitys);
+
+        linearInfoActivity = (LinearLayout) findViewById(R.id.linear_info_activity);
+        textCancel = (TextView) findViewById(R.id.text_cancel_info_activity);
+        textSave = (TextView) findViewById(R.id.text_save_info_activity);
+        editStatus = (EditText) findViewById(R.id.edit_status);
+        editLimits = (EditText) findViewById(R.id.edit_limits);
+        editComments = (EditText) findViewById(R.id.edit_comments);
+        imgButtonPrevious = (ImageView) findViewById(R.id.button_previous);
+        imgButtonNext = (ImageView) findViewById(R.id.button_next);
+
+        buttonHistoricInfo = (Button) findViewById(R.id.button_historic);
+        buttonHistoric = (Button) findViewById(R.id.btn_call_historic);
+        buttonHistoric.setOnClickListener(goGraphic);
+        buttonHistoricInfo.setOnClickListener(goGraphic);
+
+        linearInfoActivity.setOnClickListener(hideInfo);
+        textCancel.setOnClickListener(hideInfo);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -66,5 +99,31 @@ public class DetailsProcessActivity extends AppCompatActivity {
 
         listView.setAdapter(adapter);
 
+    }
+
+
+    public static void cleanInfos(){
+        editComments.setText("");
+        editLimits.setText("");
+        editStatus.setText("");
+    }
+
+    public static View.OnClickListener hideInfo = new View.OnClickListener() {
+        public void onClick(View v) {
+            linearInfoActivity.setVisibility(View.GONE);
+        }
+    };
+
+    public View.OnClickListener goGraphic = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(DetailsProcessActivity.this, GraphicActivity.class);
+            startActivity(i);
+        }
+    };
+
+    @Override
+    public void onBackPressed(){
+        DetailsProcessActivity.this.finish();
     }
 }

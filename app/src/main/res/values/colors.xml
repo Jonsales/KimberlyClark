@@ -24,5 +24,6 @@
     <color name="red_status">#DC2222</color>
     <color name="green_status">#06AC1A</color>
     <color name="black">#000000</color>
+    <color name="green_graphic">#D9F8F0</color>
 
 </resources>

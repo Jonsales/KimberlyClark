@@ -106,6 +106,10 @@
     <string name="number">Nº</string>
     <string name="activity">Atividade</string>
     <string name="date">Data</string>
+    <string name="status">Status</string>
+    <string name="type">Tipo</string>
+    <string name="limits">Limites</string>
+    <string name="save">Salvar</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

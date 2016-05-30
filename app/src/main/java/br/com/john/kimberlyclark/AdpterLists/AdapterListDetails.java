@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import br.com.john.kimberlyclark.DetailsProcessActivity;
 import br.com.john.kimberlyclark.ProcessFragment;
 import br.com.john.kimberlyclark.R;
 
@@ -71,6 +72,7 @@ public class AdapterListDetails extends ArrayAdapter<String> {
     }
 
     public void click(int position){
+        DetailsProcessActivity.linearInfoActivity.setVisibility(View.VISIBLE);
         Log.i("position", position+"");
     }
 }
