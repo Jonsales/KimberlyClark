@@ -7,4 +7,5 @@ import android.app.Activity;
  */
 public class AllActivitys {
     public static Activity mainActivity;
+    public static Activity detailsProcessActivity;
 }

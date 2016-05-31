@@ -34,6 +34,7 @@ import java.util.List;
 
 import br.com.john.kimberlyclark.AdpterLists.AdapterListDetails;
 import br.com.john.kimberlyclark.AdpterLists.AdapterListHistoric;
+import br.com.john.kimberlyclark.AdpterLists.CustomSpinnerAdapter;
 import br.com.john.kimberlyclark.AdpterLists.ItemListDetails;
 import br.com.john.kimberlyclark.AdpterLists.ItemListHistoric;
 import br.com.john.kimberlyclark.Services.AllActivitys;
@@ -62,6 +63,8 @@ public class DetailsProcessActivity extends AppCompatActivity {
             }
         });
         setSupportActionBar(toolbar);
+
+        AllActivitys.detailsProcessActivity = DetailsProcessActivity.this;
 
         listView = (ListView) findViewById(R.id.list_activitys);
 
@@ -177,62 +180,4 @@ public class DetailsProcessActivity extends AppCompatActivity {
         });
     }
 
-
-    public class CustomSpinnerAdapter extends BaseAdapter implements SpinnerAdapter {
-
-        private final Context activity;
-        private ArrayList<String> asr;
-
-        public CustomSpinnerAdapter(Context context,ArrayList<String> asr) {
-            this.asr=asr;
-            activity = context;
-        }
-
-
-
-        public int getCount()
-        {
-            return asr.size();
-        }
-
-        public Object getItem(int i)
-        {
-            return asr.get(i);
-        }
-
-        public long getItemId(int i)
-        {
-            return (long)i;
-        }
-
-
-
-        @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            TextView txt = new TextView(DetailsProcessActivity.this);
-            final float scale = getResources().getDisplayMetrics().density;
-            txt.setPadding((int)(20 * scale + 0.5f), (int)(10 * scale + 0.5f),
-                    (int)(20 * scale + 0.5f), (int)(10 * scale + 0.5f));
-            txt.setTextSize(16);
-            txt.setGravity(Gravity.LEFT);
-            txt.setText(asr.get(position));
-            txt.setTextColor(getResources().getColor(R.color.color_style_default));
-            return  txt;
-        }
-
-        public View getView(int i, View view, ViewGroup viewgroup) {
-            TextView txt = new TextView(DetailsProcessActivity.this);
-            txt.setGravity(Gravity.CENTER);
-            final float scale = getResources().getDisplayMetrics().scaledDensity;
-            txt.setPadding(0, 0,
-                    (int)(5 * scale + 0.5f), 0);
-            txt.setTextSize(16);
-            txt.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_dropdown_spinner, 0);
-            txt.setText(asr.get(i));
-            txt.setSingleLine(true);
-            txt.setTextColor(getResources().getColor(R.color.color_style_default));
-            return  txt;
-        }
-
-    }
 }
