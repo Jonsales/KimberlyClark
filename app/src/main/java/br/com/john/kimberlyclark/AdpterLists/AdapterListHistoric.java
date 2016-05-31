@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import br.com.john.kimberlyclark.GraphicActivity;
+import br.com.john.kimberlyclark.HistoricFragment;
 import br.com.john.kimberlyclark.ProcessFragment;
 import br.com.john.kimberlyclark.R;
 
@@ -71,6 +73,8 @@ public class AdapterListHistoric extends ArrayAdapter<String> {
     }
 
     public void click(int position){
+        HistoricFragment.callGraphicActivity();
+        GraphicActivity.setItem(list.get(position));
         Log.i("position", position+"");
     }
 }

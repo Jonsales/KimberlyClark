@@ -2,6 +2,7 @@ package br.com.john.kimberlyclark;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -102,7 +103,11 @@ public class HistoricFragment extends Fragment {
         AdapterListHistoric adapter = new AdapterListHistoric(AllActivitys.mainActivity, values, listProcess);
 
         listView.setAdapter(adapter);
+    }
 
+    public static void callGraphicActivity(){
+        Intent i = new Intent(AllActivitys.mainActivity, GraphicActivity.class);
+        AllActivitys.mainActivity.startActivity(i);
     }
 
     @Override

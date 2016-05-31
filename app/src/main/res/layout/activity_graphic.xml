@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.john.kimberlyclark.GraphicActivity">
+    tools:context="br.com.john.kimberlyclark.GraphicActivity"
+    android:background="@color/white"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,12 +48,20 @@
                     android:id="@+id/cubiclinechart"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:egUseCubic="true"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    app:egUseCubic="false"
                     app:egUseOverlapFill="true"
                     app:egCurveSmoothness="0.4"
-                    app:egIndicatorLineColor="#FE6DA8"
+                    app:egIndicatorLineColor="@color/color_style_default"
                     app:egLegendHeight="40dp"
-                    app:egShowStandardValue="true"/>
+                    app:egShowStandardValue="true"
+                    app:egActivateIndicatorShadow="true"
+                    app:egIndicatorTextColor="@color/grey_letter"
+                    app:egUseDynamicScaling="true"
+                    app:egShowValueIndicator="true"
+
+                    />
             </LinearLayout>
 
         </LinearLayout>

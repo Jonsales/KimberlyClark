@@ -7,9 +7,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ import com.astuetz.PagerSlidingTabStrip;
 public class MainActivity extends AppCompatActivity {
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
     ViewPager mViewPagerHome;
+    Toolbar toolbar;
     public static LinearLayout linearInfo;
     public static TextView textInfoMachine, textInfoSystem, textInfoGroup, textCancel, textInit;
 
@@ -28,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
+        ImageView imgBack = (ImageView) findViewById(R.id.imgview_back_toolbar_default);
+        LinearLayout linearBack = (LinearLayout) findViewById(R.id.linear_back_button);
+        linearBack.setVisibility(View.GONE);
+        imgBack.setVisibility(View.GONE);
+        setSupportActionBar(toolbar);
 
         linearInfo = (LinearLayout) findViewById(R.id.linear_show_info);
         textInfoGroup = (TextView) findViewById(R.id.text_info_group);
@@ -58,20 +68,6 @@ public class MainActivity extends AppCompatActivity {
         mViewPagerHome = (ViewPager) findViewById(R.id.pager);
         mViewPagerHome.setOffscreenPageLimit(3);
         mViewPagerHome.setAdapter(mAppSectionsPagerAdapter);
-
-        mViewPagerHome.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
 
 
         final PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
