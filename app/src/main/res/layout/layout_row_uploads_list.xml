@@ -9,13 +9,16 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="0.4"
-        android:padding="25dp">
+        android:layout_weight="0.3"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp">
         <TextView
             android:id="@+id/text_details_uploads"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="Prcesso 01"
+            android:singleLine="true"
             android:textSize="18sp"
             />
     </LinearLayout>
@@ -23,7 +26,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="0.6"
+        android:layout_weight="0.7"
         android:gravity="right|center_vertical"
         android:orientation="horizontal">
         <LinearLayout
@@ -51,18 +54,16 @@
             android:id="@+id/linear_background_img_reload"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.2"
+            android:layout_weight="0.1"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:paddingRight="20dp"
+            android:layout_marginRight="20dp"
             >
             <ImageView
                 android:id="@+id/img_reload_uploads"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/reload"/>
+                android:background="@drawable/reload_small" />
         </LinearLayout>
 
         </LinearLayout>
