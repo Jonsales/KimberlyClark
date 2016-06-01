@@ -5,6 +5,7 @@ import com.squareup.okhttp.RequestBody;
 import java.util.List;
 
 import br.com.john.kimberlyclark.Classes.Process;
+import br.com.john.kimberlyclark.Classes.example;
 import retrofit.Call;
 import retrofit.http.Body;
 import retrofit.http.Field;
@@ -20,8 +21,8 @@ import retrofit.http.Path;
  * Created by Jonathan on 01/06/16.
  */
 public interface ConnectionAPI {
-    @GET("package/ctrl/{ctrlCar}")
-    Call<Process> getProcess(@Path("ctrlCar") String ctrl);
+    @GET("/api/v1/basket/?format=json")
+    Call<example> getProcess();
 
 
     @FormUrlEncoded

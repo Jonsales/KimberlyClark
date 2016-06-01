@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.john.kimberlyclark.Classes.Process;
+import br.com.john.kimberlyclark.Classes.example;
 import br.com.john.kimberlyclark.ConnectionAPI.Deserializer.ProcessDeserializer;
 import retrofit.Call;
 import retrofit.Callback;
@@ -29,28 +30,27 @@ import retrofit.Retrofit;
  */
 public class ConnectionFromAPI {
     public static final String TAG = "LOG";
-    public static final String API = "";
-
-    Gson gson = new GsonBuilder().registerTypeAdapter(Process.class, new ProcessDeserializer()).create();
-
-    Retrofit retrofit = new Retrofit
-            .Builder()
-            .baseUrl(API)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .build();
-
-    ConnectionAPI connAPI = retrofit.create(ConnectionAPI.class);
-
+    public static final String API = "http://ec2-52-26-239-24.us-west-2.compute.amazonaws.com";
 
     // GET LUXURY CAR - REQUEST
     public void getProcess(){
-        final Call<Process> callProcess = connAPI.getProcess("CtrlLuxuryCar.php");
-        callProcess.enqueue(new Callback<Process>() {
-            @Override
-            public void onResponse(Response<Process> response, Retrofit retrofit) {
-                Process c = response.body();
-                if( c != null ){
+        Gson gson = new GsonBuilder().registerTypeAdapter(example.class, new ProcessDeserializer()).create();
 
+        Retrofit retrofit = new Retrofit
+                .Builder()
+                .baseUrl(API)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        ConnectionAPI connAPI = retrofit.create(ConnectionAPI.class);
+
+        final Call<example> callProcess = connAPI.getProcess();
+        callProcess.enqueue(new Callback<example>() {
+            @Override
+            public void onResponse(Response<example> response, Retrofit retrofit) {
+                example c = response.body();
+                if( c != null ){
+                    Log.i(TAG, "example" + c.getName());
                 }
                 else{
                     Log.i(TAG, "R: Error GET LUXURY CAR: "+response.errorBody());

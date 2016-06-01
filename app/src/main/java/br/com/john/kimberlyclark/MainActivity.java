@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import br.com.john.kimberlyclark.ConnectionAPI.ConnectionFromAPI;
 import br.com.john.kimberlyclark.Services.AllActivitys;
 import br.com.john.kimberlyclark.Services.AppSectionsPagerAdapter;
 
@@ -85,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < mAppSectionsPagerAdapter.getCount(); i++) {
             }
         }
+
+
+        ConnectionFromAPI conn = new ConnectionFromAPI();
+        conn.getProcess();
     }
 
     public static View.OnClickListener hideInfo = new View.OnClickListener() {
