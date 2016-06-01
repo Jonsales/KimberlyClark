@@ -1,19 +1,19 @@
-package br.com.john.kimberlyclark.AdpterLists;
+package br.com.john.kimberlyclark.Classes;
 
 /**
  * Created by Jonathan on 24/05/16.
  */
-public class ItemListDetails {
+public class DetailsList {
     String id;
     String activity;
     String date;
     String number;
 
-    public ItemListDetails(){
+    public DetailsList(){
 
     }
 
-    public ItemListDetails(String id, String date, String activity, String number){
+    public DetailsList(String id, String date, String activity, String number){
         this.id = id;
         this.date = date;
         this.activity = activity;

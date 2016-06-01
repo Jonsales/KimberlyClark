@@ -1,9 +1,9 @@
-package br.com.john.kimberlyclark.AdpterLists;
+package br.com.john.kimberlyclark.Classes;
 
 /**
  * Created by Jonathan on 18/05/16.
  */
-public class ItemListProcess {
+public class Process {
     String id;
     String date;
     String process;
@@ -11,11 +11,11 @@ public class ItemListProcess {
     String machine;
     String group;
 
-    public ItemListProcess(){
+    public Process(){
 
     }
 
-    public ItemListProcess(String id, String date, String process, String machine, String system, String group){
+    public Process(String id, String date, String process, String machine, String system, String group){
         this.id = id;
         this.date = date;
         this.process = process;

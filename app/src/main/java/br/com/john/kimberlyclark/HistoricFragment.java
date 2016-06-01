@@ -1,7 +1,6 @@
 package br.com.john.kimberlyclark;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,9 +14,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import br.com.john.kimberlyclark.AdpterLists.AdapterListHistoric;
-import br.com.john.kimberlyclark.AdpterLists.AdapterListProcess;
-import br.com.john.kimberlyclark.AdpterLists.ItemListHistoric;
-import br.com.john.kimberlyclark.AdpterLists.ItemListProcess;
+import br.com.john.kimberlyclark.Classes.Historic;
 import br.com.john.kimberlyclark.Services.AllActivitys;
 
 
@@ -88,11 +85,11 @@ public class HistoricFragment extends Fragment {
         values[1] = "Historico 02";
         values[2] = "Historico 03";
 
-        ArrayList<ItemListHistoric> listProcess = new ArrayList<ItemListHistoric>();
+        ArrayList<Historic> listProcess = new ArrayList<Historic>();
 
 
         for(int i = 0; i<=2; i++){
-            ItemListHistoric obj = new ItemListHistoric();
+            Historic obj = new Historic();
             obj.setId(String.valueOf(i));
             obj.setDate(String.valueOf(i+" mai"));
             obj.setHistoric(String.valueOf("Historico"+i));

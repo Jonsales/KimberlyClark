@@ -1,30 +1,21 @@
 package br.com.john.kimberlyclark;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.TextViewCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import br.com.john.kimberlyclark.AdpterLists.AdapterListProcess;
-import br.com.john.kimberlyclark.AdpterLists.ItemListProcess;
+import br.com.john.kimberlyclark.Classes.Process;
 import br.com.john.kimberlyclark.Services.AllActivitys;
 
 
@@ -98,10 +89,10 @@ public class ProcessFragment extends Fragment {
         values[1] = "Processo 02";
         values[2] = "Processo 03";
 
-        ArrayList<ItemListProcess> listProcess = new ArrayList<ItemListProcess>();
+        ArrayList<Process> listProcess = new ArrayList<Process>();
         
         for(int i = 0; i<=2; i++){
-            ItemListProcess obj = new ItemListProcess();
+            Process obj = new Process();
             obj.setId(String.valueOf(i));
             obj.setDate(String.valueOf(i+" mai"));
             obj.setProcess(String.valueOf("Process"+i));

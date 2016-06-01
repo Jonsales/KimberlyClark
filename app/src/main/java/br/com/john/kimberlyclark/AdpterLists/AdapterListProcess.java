@@ -2,22 +2,17 @@ package br.com.john.kimberlyclark.AdpterLists;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
+import br.com.john.kimberlyclark.Classes.Process;
 import br.com.john.kimberlyclark.MainActivity;
 import br.com.john.kimberlyclark.ProcessFragment;
 import br.com.john.kimberlyclark.R;
@@ -30,7 +25,7 @@ public class AdapterListProcess extends ArrayAdapter<String> {
     private final Context context;
     private static Activity act;
     private final String[] Values;
-    private ArrayList<ItemListProcess> list;
+    private ArrayList<Process> list;
     public static int currentPosition = 0;
 
     ListView listView;
@@ -42,7 +37,7 @@ public class AdapterListProcess extends ArrayAdapter<String> {
         return act;
     }
 
-    public AdapterListProcess(Context context, String[] values, ArrayList<ItemListProcess> list) {
+    public AdapterListProcess(Context context, String[] values, ArrayList<Process> list) {
         super(context, R.layout.layout_row_process_list, values);
         this.context = context;
         Values = values;

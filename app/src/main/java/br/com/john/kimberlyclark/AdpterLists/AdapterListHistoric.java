@@ -1,6 +1,5 @@
 package br.com.john.kimberlyclark.AdpterLists;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import br.com.john.kimberlyclark.Classes.Historic;
 import br.com.john.kimberlyclark.GraphicActivity;
 import br.com.john.kimberlyclark.HistoricFragment;
 import br.com.john.kimberlyclark.ProcessFragment;
@@ -25,11 +25,11 @@ public class AdapterListHistoric extends ArrayAdapter<String> {
 
     private final Context context;
     private final String[] Values;
-    private ArrayList<ItemListHistoric> list;
+    private ArrayList<Historic> list;
 
     ListView listView;
 
-    public AdapterListHistoric(Context context, String[] values, ArrayList<ItemListHistoric> list) {
+    public AdapterListHistoric(Context context, String[] values, ArrayList<Historic> list) {
         super(context, R.layout.layout_row_process_list, values);
         this.context = context;
         Values = values;

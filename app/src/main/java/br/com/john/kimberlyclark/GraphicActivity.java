@@ -11,10 +11,10 @@ import org.eazegraph.lib.charts.ValueLineChart;
 import org.eazegraph.lib.models.ValueLinePoint;
 import org.eazegraph.lib.models.ValueLineSeries;
 
-import br.com.john.kimberlyclark.AdpterLists.ItemListHistoric;
+import br.com.john.kimberlyclark.Classes.Historic;
 
 public class GraphicActivity extends AppCompatActivity {
-    public static ItemListHistoric item;
+    public static Historic item;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +61,7 @@ public class GraphicActivity extends AppCompatActivity {
         mCubicValueLineChart.startAnimation();
     }
 
-    public static void setItem(ItemListHistoric item){
+    public static void setItem(Historic item){
         GraphicActivity.item = item;
     }
 }
