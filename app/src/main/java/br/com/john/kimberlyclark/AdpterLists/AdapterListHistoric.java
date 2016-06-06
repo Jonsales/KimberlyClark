@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import br.com.john.kimberlyclark.Classes.Historic;
 import br.com.john.kimberlyclark.GraphicActivity;
 import br.com.john.kimberlyclark.HistoricFragment;
-import br.com.john.kimberlyclark.ProcessFragment;
+import br.com.john.kimberlyclark.RoutesFragment;
 import br.com.john.kimberlyclark.R;
 
 /**
@@ -35,7 +35,7 @@ public class AdapterListHistoric extends ArrayAdapter<String> {
         Values = values;
         this.list = list;
 
-        listView = ProcessFragment.listViewProcess;
+        listView = RoutesFragment.listViewProcess;
     }
     static class ViewHolder {
         LinearLayout linearBackground;

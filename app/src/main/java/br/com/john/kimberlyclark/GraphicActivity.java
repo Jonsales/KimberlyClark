@@ -28,7 +28,9 @@ public class GraphicActivity extends AppCompatActivity {
             }
         });
         TextView textTitle = (TextView) findViewById(R.id.text_title_toolbar);
-        textTitle.setText(item.getHistoric());
+        if(item != null){
+            textTitle.setText(item.getHistoric());
+        }
         setSupportActionBar(toolbar);
 
         showGraphic();

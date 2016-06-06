@@ -10,9 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import br.com.john.kimberlyclark.AdpterLists.AdapterListProcess;
 import br.com.john.kimberlyclark.Classes.Process;
@@ -22,12 +25,12 @@ import br.com.john.kimberlyclark.Services.AllActivitys;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ProcessFragment.OnFragmentInteractionListener} interface
+ * {@link RoutesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ProcessFragment#newInstance} factory method to
+ * Use the {@link RoutesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProcessFragment extends Fragment {
+public class RoutesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,11 +42,13 @@ public class ProcessFragment extends Fragment {
 
     //TODO: Component fragment
     public static ListView listViewProcess;
+    public static ExpandableListView expandableListView;
+    ArrayList<Process> listProcess;
 
 
     private OnFragmentInteractionListener mListener;
 
-    public ProcessFragment() {
+    public RoutesFragment() {
         // Required empty public constructor
     }
 
@@ -53,11 +58,11 @@ public class ProcessFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProcessFragment.
+     * @return A new instance of fragment RoutesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProcessFragment newInstance(String param1, String param2) {
-        ProcessFragment fragment = new ProcessFragment();
+    public static RoutesFragment newInstance(String param1, String param2) {
+        RoutesFragment fragment = new RoutesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -78,16 +83,41 @@ public class ProcessFragment extends Fragment {
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        listViewProcess = (ListView) view.findViewById(R.id.list_process);
+
+
+        expandableListView = (ExpandableListView) view.findViewById(R.id.list_process);
+        expandableListView.setGroupIndicator(null);
+        expandableListView.setChildIndicator(null);
+
+        listProcess = new ArrayList<Process>();
+
+        for(int i = 0; i<=2; i++){
+            Process obj = new Process();
+            obj.setId(String.valueOf(i));
+            obj.setDate(String.valueOf(i+" mai"));
+            obj.setProcess(String.valueOf("Rota "+i));
+            obj.setMachine(String.valueOf("Machine "+i));
+            obj.setGroup(String.valueOf("Group "+i));
+            obj.setSystem(String.valueOf("System "+i));
+            listProcess.add(obj);
+        }
+
+        HashMap<Process, List<String>> allChildItems = returnGroupedChildItems();
+
+        AdapterListProcess expandableListViewAdapter = new AdapterListProcess(this.getContext(), listProcess, allChildItems);
+
+        expandableListView.setAdapter(expandableListViewAdapter);
+
+        /*listViewProcess = (ListView) view.findViewById(R.id.list_process);
 
         listViewProcess.setVisibility(View.VISIBLE);
 
         String[] values;
         values = new String[3];
 
-        values[0] = "Processo 01";
-        values[1] = "Processo 02";
-        values[2] = "Processo 03";
+        values[0] = "Rota 01";
+        values[1] = "Rota 02";
+        values[2] = "Rota 03";
 
         ArrayList<Process> listProcess = new ArrayList<Process>();
         
@@ -95,7 +125,7 @@ public class ProcessFragment extends Fragment {
             Process obj = new Process();
             obj.setId(String.valueOf(i));
             obj.setDate(String.valueOf(i+" mai"));
-            obj.setProcess(String.valueOf("Process"+i));
+            obj.setProcess(String.valueOf("Rota "+i));
             obj.setMachine(String.valueOf("Machine "+i));
             obj.setGroup(String.valueOf("Group "+i));
             obj.setSystem(String.valueOf("System "+i));
@@ -111,7 +141,51 @@ public class ProcessFragment extends Fragment {
             public void onClick(View v) {
                 callScreenDetailsProcess();
             }
-        });
+        });*/
+
+    }
+
+    private HashMap<Process, List<String>> returnGroupedChildItems() {
+
+        HashMap<Process, List<String>> childContent = new HashMap<Process, List<String>>();
+
+        List<String> cars = new ArrayList<String>();
+
+        cars.add("Volvo");
+
+        cars.add("BMW");
+
+        cars.add("Toyota");
+
+        cars.add("Nissan");
+
+        List<String> houses = new ArrayList<String>();
+
+        houses.add("Duplex");
+
+        houses.add("Twin Duplex");
+
+        houses.add("Bungalow");
+
+        houses.add("Two Storey");
+
+        List<String> footballClubs = new ArrayList<String>();
+
+        footballClubs.add("Liverpool");
+
+        footballClubs.add("Arsenal");
+
+        footballClubs.add("Stoke City");
+
+        footballClubs.add("West Ham");
+
+        childContent.put(listProcess.get(0), cars);
+
+        childContent.put(listProcess.get(1), houses);
+
+        childContent.put(listProcess.get(2), footballClubs);
+
+        return childContent;
     }
 
     public void callScreenDetailsProcess(){
@@ -128,7 +202,7 @@ public class ProcessFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_process, container, false);
+        return inflater.inflate(R.layout.fragment_routes, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

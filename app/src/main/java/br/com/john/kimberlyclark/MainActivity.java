@@ -1,21 +1,15 @@
 package br.com.john.kimberlyclark;
 
-import android.graphics.Color;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import br.com.john.kimberlyclark.ConnectionAPI.ConnectionFromAPI;
 import br.com.john.kimberlyclark.Services.AllActivitys;
 import br.com.john.kimberlyclark.Services.AppSectionsPagerAdapter;
 
@@ -52,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         AllActivitys.mainActivity = MainActivity.this;
 
-        Fragment fragments[] = new Fragment[]{new ProcessFragment(),
+        Fragment fragments[] = new Fragment[]{new RoutesFragment(),
                 new HistoricFragment(), new UploadsFragment()};
 
-        String tabIcons[] = {getResources().getString(R.string.processos),
+        String tabIcons[] = {getResources().getString(R.string.routes),
                 getResources().getString(R.string.historico),
                 getResources().getString(R.string.uploads)};
 
@@ -86,10 +80,6 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < mAppSectionsPagerAdapter.getCount(); i++) {
             }
         }
-
-
-        ConnectionFromAPI conn = new ConnectionFromAPI();
-        conn.getProcess();
     }
 
     public static View.OnClickListener hideInfo = new View.OnClickListener() {

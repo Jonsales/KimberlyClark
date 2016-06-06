@@ -2,15 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.john.kimberlyclark.ProcessFragment"
+    tools:context=".RoutesFragment"
     android:background="@color/white">
 
-    <ListView
+    <ExpandableListView
         android:id="@+id/list_process"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@null"
         android:dividerHeight="0dp"
+        android:childDivider="#000000"
         android:background="@color/white">
-    </ListView>
+    </ExpandableListView>
 </FrameLayout>

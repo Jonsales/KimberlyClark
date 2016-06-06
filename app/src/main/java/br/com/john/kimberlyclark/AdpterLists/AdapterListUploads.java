@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import br.com.john.kimberlyclark.Classes.Uploads;
-import br.com.john.kimberlyclark.ProcessFragment;
+import br.com.john.kimberlyclark.RoutesFragment;
 import br.com.john.kimberlyclark.R;
 import br.com.john.kimberlyclark.Services.AllActivitys;
 
@@ -37,7 +37,7 @@ public class AdapterListUploads extends ArrayAdapter<String> {
         Values = values;
         this.list = list;
 
-        listView = ProcessFragment.listViewProcess;
+        listView = RoutesFragment.listViewProcess;
     }
     static class ViewHolder {
         LinearLayout linearBackground;
