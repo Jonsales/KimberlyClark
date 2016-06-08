@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import br.com.john.kimberlyclark.AdpterLists.AdapterListProcess;
-import br.com.john.kimberlyclark.Classes.Process;
+import br.com.john.kimberlyclark.Classes.Routes;
 import br.com.john.kimberlyclark.Services.AllActivitys;
 
 
@@ -42,8 +42,7 @@ public class RoutesFragment extends Fragment {
 
     //TODO: Component fragment
     public static ListView listViewProcess;
-    public static ExpandableListView expandableListView;
-    ArrayList<Process> listProcess;
+    ArrayList<Routes> listProcess;
 
 
     private OnFragmentInteractionListener mListener;
@@ -82,33 +81,7 @@ public class RoutesFragment extends Fragment {
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-
-        expandableListView = (ExpandableListView) view.findViewById(R.id.list_process);
-        expandableListView.setGroupIndicator(null);
-        expandableListView.setChildIndicator(null);
-
-        listProcess = new ArrayList<Process>();
-
-        for(int i = 0; i<=2; i++){
-            Process obj = new Process();
-            obj.setId(String.valueOf(i));
-            obj.setDate(String.valueOf(i+" mai"));
-            obj.setProcess(String.valueOf("Rota "+i));
-            obj.setMachine(String.valueOf("Machine "+i));
-            obj.setGroup(String.valueOf("Group "+i));
-            obj.setSystem(String.valueOf("System "+i));
-            listProcess.add(obj);
-        }
-
-        HashMap<Process, List<String>> allChildItems = returnGroupedChildItems();
-
-        AdapterListProcess expandableListViewAdapter = new AdapterListProcess(this.getContext(), listProcess, allChildItems);
-
-        expandableListView.setAdapter(expandableListViewAdapter);
-
-        /*listViewProcess = (ListView) view.findViewById(R.id.list_process);
+        listViewProcess = (ListView) view.findViewById(R.id.list_process);
 
         listViewProcess.setVisibility(View.VISIBLE);
 
@@ -119,16 +92,20 @@ public class RoutesFragment extends Fragment {
         values[1] = "Rota 02";
         values[2] = "Rota 03";
 
-        ArrayList<Process> listProcess = new ArrayList<Process>();
+        ArrayList<Routes> listProcess = new ArrayList<Routes>();
         
         for(int i = 0; i<=2; i++){
-            Process obj = new Process();
+            Routes obj = new Routes();
             obj.setId(String.valueOf(i));
             obj.setDate(String.valueOf(i+" mai"));
             obj.setProcess(String.valueOf("Rota "+i));
             obj.setMachine(String.valueOf("Machine "+i));
             obj.setGroup(String.valueOf("Group "+i));
             obj.setSystem(String.valueOf("System "+i));
+            if(i==2)
+                obj.setStatus("execute");
+            else
+                obj.setStatus("done");
             listProcess.add(obj);
         }
 
@@ -141,13 +118,13 @@ public class RoutesFragment extends Fragment {
             public void onClick(View v) {
                 callScreenDetailsProcess();
             }
-        });*/
+        });
 
     }
 
-    private HashMap<Process, List<String>> returnGroupedChildItems() {
+    private HashMap<Routes, List<String>> returnGroupedChildItems() {
 
-        HashMap<Process, List<String>> childContent = new HashMap<Process, List<String>>();
+        HashMap<Routes, List<String>> childContent = new HashMap<Routes, List<String>>();
 
         List<String> cars = new ArrayList<String>();
 
@@ -192,7 +169,7 @@ public class RoutesFragment extends Fragment {
         Log.i("Current Position ", AdapterListProcess.currentPosition+"");
         MainActivity.linearInfo.setVisibility(View.GONE);
         MainActivity.cleanInfos();
-        Intent i = new Intent(AllActivitys.mainActivity, DetailsProcessActivity.class);
+        Intent i = new Intent(AllActivitys.mainActivity, GroupRoutesActivity.class);
         startActivity(i);
 
     }

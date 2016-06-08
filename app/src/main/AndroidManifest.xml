@@ -25,7 +25,8 @@
             android:name=".DetailsProcessActivity"
             android:label="@string/title_activity_details_process"
             android:theme="@style/AppTheme" />
-        <activity android:name=".GraphicActivity"></activity>
+        <activity android:name=".GraphicActivity" />
+        <activity android:name=".GroupRoutesActivity"></activity>
     </application>
 
 </manifest>

@@ -54,7 +54,7 @@ public class AdapterListHistoric extends ArrayAdapter<String> {
             convertView = inflater.inflate(R.layout.layout_row_process_list, null);
             viewHolder = new ViewHolder();
             viewHolder.linearBackground = (LinearLayout) convertView.findViewById(R.id.linear_background_list_process);
-            viewHolder.textDate = (TextView) convertView.findViewById(R.id.text_date_process);
+            viewHolder.textDate = (TextView) convertView.findViewById(R.id.text_info_time);
             viewHolder.textProcess = (TextView) convertView.findViewById(R.id.text_details_process);
             convertView.setTag(viewHolder);
         } else {

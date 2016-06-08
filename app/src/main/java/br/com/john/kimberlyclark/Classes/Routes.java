@@ -3,25 +3,27 @@ package br.com.john.kimberlyclark.Classes;
 /**
  * Created by Jonathan on 18/05/16.
  */
-public class Process {
+public class Routes {
     String id;
     String date;
     String process;
     String system;
     String machine;
     String group;
+    String status;
 
-    public Process(){
+    public Routes(){
 
     }
 
-    public Process(String id, String date, String process, String machine, String system, String group){
+    public Routes(String id, String date, String process, String machine, String system, String group, String status){
         this.id = id;
         this.date = date;
         this.process = process;
         this.machine = machine;
         this.system = system;
         this.group = group;
+        this.status = status;
     }
 
     public String getId() {
@@ -70,5 +72,13 @@ public class Process {
 
     public void setGroup(String group) {
         this.group = group;
+    }
+
+    public String getStatus(){
+        return status;
+
+    }
+    public void setStatus(String status){
+        this.status = status;
     }
 }

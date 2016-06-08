@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.john.kimberlyclark.GroupRoutesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <include layout="@layout/toolbar_default" android:id="@+id/include"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9">
+        <ExpandableListView
+            android:id="@+id/expandable_group_routes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:childDivider="#000"
+            android:dividerHeight="0sp"
+            android:divider="#000"/>
+    </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
