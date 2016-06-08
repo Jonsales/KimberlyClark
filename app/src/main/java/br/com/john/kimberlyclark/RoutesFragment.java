@@ -1,42 +1,36 @@
 package br.com.john.kimberlyclark;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.TextViewCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.LinearLayout;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import br.com.john.kimberlyclark.AdpterLists.AdapterListProcess;
-import br.com.john.kimberlyclark.AdpterLists.ItemListProcess;
+import br.com.john.kimberlyclark.Classes.Routes;
 import br.com.john.kimberlyclark.Services.AllActivitys;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ProcessFragment.OnFragmentInteractionListener} interface
+ * {@link RoutesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ProcessFragment#newInstance} factory method to
+ * Use the {@link RoutesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProcessFragment extends Fragment {
+public class RoutesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -48,11 +42,12 @@ public class ProcessFragment extends Fragment {
 
     //TODO: Component fragment
     public static ListView listViewProcess;
+    ArrayList<Routes> listProcess;
 
 
     private OnFragmentInteractionListener mListener;
 
-    public ProcessFragment() {
+    public RoutesFragment() {
         // Required empty public constructor
     }
 
@@ -62,11 +57,11 @@ public class ProcessFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProcessFragment.
+     * @return A new instance of fragment RoutesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProcessFragment newInstance(String param1, String param2) {
-        ProcessFragment fragment = new ProcessFragment();
+    public static RoutesFragment newInstance(String param1, String param2) {
+        RoutesFragment fragment = new RoutesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -86,7 +81,6 @@ public class ProcessFragment extends Fragment {
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         listViewProcess = (ListView) view.findViewById(R.id.list_process);
 
         listViewProcess.setVisibility(View.VISIBLE);
@@ -94,20 +88,24 @@ public class ProcessFragment extends Fragment {
         String[] values;
         values = new String[3];
 
-        values[0] = "Processo 01";
-        values[1] = "Processo 02";
-        values[2] = "Processo 03";
+        values[0] = "Rota 01";
+        values[1] = "Rota 02";
+        values[2] = "Rota 03";
 
-        ArrayList<ItemListProcess> listProcess = new ArrayList<ItemListProcess>();
+        ArrayList<Routes> listProcess = new ArrayList<Routes>();
         
         for(int i = 0; i<=2; i++){
-            ItemListProcess obj = new ItemListProcess();
+            Routes obj = new Routes();
             obj.setId(String.valueOf(i));
             obj.setDate(String.valueOf(i+" mai"));
-            obj.setProcess(String.valueOf("Process"+i));
+            obj.setProcess(String.valueOf("Rota "+i));
             obj.setMachine(String.valueOf("Machine "+i));
             obj.setGroup(String.valueOf("Group "+i));
             obj.setSystem(String.valueOf("System "+i));
+            if(i==2)
+                obj.setStatus("execute");
+            else
+                obj.setStatus("done");
             listProcess.add(obj);
         }
 
@@ -121,13 +119,57 @@ public class ProcessFragment extends Fragment {
                 callScreenDetailsProcess();
             }
         });
+
+    }
+
+    private HashMap<Routes, List<String>> returnGroupedChildItems() {
+
+        HashMap<Routes, List<String>> childContent = new HashMap<Routes, List<String>>();
+
+        List<String> cars = new ArrayList<String>();
+
+        cars.add("Volvo");
+
+        cars.add("BMW");
+
+        cars.add("Toyota");
+
+        cars.add("Nissan");
+
+        List<String> houses = new ArrayList<String>();
+
+        houses.add("Duplex");
+
+        houses.add("Twin Duplex");
+
+        houses.add("Bungalow");
+
+        houses.add("Two Storey");
+
+        List<String> footballClubs = new ArrayList<String>();
+
+        footballClubs.add("Liverpool");
+
+        footballClubs.add("Arsenal");
+
+        footballClubs.add("Stoke City");
+
+        footballClubs.add("West Ham");
+
+        childContent.put(listProcess.get(0), cars);
+
+        childContent.put(listProcess.get(1), houses);
+
+        childContent.put(listProcess.get(2), footballClubs);
+
+        return childContent;
     }
 
     public void callScreenDetailsProcess(){
         Log.i("Current Position ", AdapterListProcess.currentPosition+"");
         MainActivity.linearInfo.setVisibility(View.GONE);
         MainActivity.cleanInfos();
-        Intent i = new Intent(AllActivitys.mainActivity, DetailsProcessActivity.class);
+        Intent i = new Intent(AllActivitys.mainActivity, GroupRoutesActivity.class);
         startActivity(i);
 
     }
@@ -137,7 +179,7 @@ public class ProcessFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_process, container, false);
+        return inflater.inflate(R.layout.fragment_routes, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

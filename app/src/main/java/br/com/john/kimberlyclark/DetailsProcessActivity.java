@@ -1,6 +1,5 @@
 package br.com.john.kimberlyclark;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -8,35 +7,21 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.eazegraph.lib.charts.ValueLineChart;
-import org.eazegraph.lib.models.ValueLinePoint;
-import org.eazegraph.lib.models.ValueLineSeries;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import br.com.john.kimberlyclark.AdpterLists.AdapterListDetails;
-import br.com.john.kimberlyclark.AdpterLists.AdapterListHistoric;
 import br.com.john.kimberlyclark.AdpterLists.CustomSpinnerAdapter;
-import br.com.john.kimberlyclark.AdpterLists.ItemListDetails;
-import br.com.john.kimberlyclark.AdpterLists.ItemListHistoric;
+import br.com.john.kimberlyclark.Classes.DetailsList;
 import br.com.john.kimberlyclark.Services.AllActivitys;
 
 //import com.melnykov.fab.FloatingActionButton;
@@ -105,11 +90,11 @@ public class DetailsProcessActivity extends AppCompatActivity {
         values[1] = "Historico 02";
         values[2] = "Historico 03";
 
-        ArrayList<ItemListDetails> listDetails = new ArrayList<ItemListDetails>();
+        ArrayList<DetailsList> listDetails = new ArrayList<DetailsList>();
 
 
         for(int i = 0; i<=2; i++){
-            ItemListDetails obj = new ItemListDetails();
+            DetailsList obj = new DetailsList();
             obj.setId(String.valueOf(i));
             obj.setDate(String.valueOf(i+" mai"));
             obj.setActivity(String.valueOf("Atividade "+i));

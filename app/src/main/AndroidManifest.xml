@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.john.kimberlyclark">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_launcher_new"
@@ -23,7 +25,8 @@
             android:name=".DetailsProcessActivity"
             android:label="@string/title_activity_details_process"
             android:theme="@style/AppTheme" />
-        <activity android:name=".GraphicActivity"></activity>
+        <activity android:name=".GraphicActivity" />
+        <activity android:name=".GroupRoutesActivity"></activity>
     </application>
 
 </manifest>

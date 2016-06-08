@@ -1,17 +1,17 @@
-package br.com.john.kimberlyclark.AdpterLists;
+package br.com.john.kimberlyclark.Classes;
 
 /**
  * Created by Jonathan on 19/05/16.
  */
-public class ItemListUploads {
+public class Uploads {
     String id;
     String status;
     String details;
 
-    public ItemListUploads(){
+    public Uploads(){
 
     }
-    public ItemListUploads(String id, String status, String details){
+    public Uploads(String id, String status, String details){
         this.id = id;
         this.status = status;
         this.details = details;

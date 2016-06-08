@@ -1,18 +1,18 @@
-package br.com.john.kimberlyclark.AdpterLists;
+package br.com.john.kimberlyclark.Classes;
 
 /**
  * Created by Jonathan on 19/05/16.
  */
-public class ItemListHistoric {
+public class Historic {
     String id;
     String date;
     String historic;
 
-    public ItemListHistoric(){
+    public Historic(){
 
     }
 
-    public ItemListHistoric(String id, String date, String historic){
+    public Historic(String id, String date, String historic){
         this.id = id;
         this.date = date;
         this.historic = historic;

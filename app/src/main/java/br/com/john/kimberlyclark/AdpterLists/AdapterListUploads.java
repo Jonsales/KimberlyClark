@@ -2,13 +2,11 @@ package br.com.john.kimberlyclark.AdpterLists;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -16,7 +14,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import br.com.john.kimberlyclark.ProcessFragment;
+import br.com.john.kimberlyclark.Classes.Uploads;
+import br.com.john.kimberlyclark.RoutesFragment;
 import br.com.john.kimberlyclark.R;
 import br.com.john.kimberlyclark.Services.AllActivitys;
 
@@ -28,17 +27,17 @@ public class AdapterListUploads extends ArrayAdapter<String> {
     private final Context context;
     private static Activity act;
     private final String[] Values;
-    private ArrayList<ItemListUploads> list;
+    private ArrayList<Uploads> list;
 
     ListView listView;
 
-    public AdapterListUploads(Context context, String[] values, ArrayList<ItemListUploads> list) {
+    public AdapterListUploads(Context context, String[] values, ArrayList<Uploads> list) {
         super(context, R.layout.layout_row_uploads_list, values);
         this.context = context;
         Values = values;
         this.list = list;
 
-        listView = ProcessFragment.listViewProcess;
+        listView = RoutesFragment.listViewProcess;
     }
     static class ViewHolder {
         LinearLayout linearBackground;

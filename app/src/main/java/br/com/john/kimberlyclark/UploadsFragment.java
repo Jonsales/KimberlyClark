@@ -1,7 +1,6 @@
 package br.com.john.kimberlyclark;
 
 import android.app.Activity;
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,10 +12,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import br.com.john.kimberlyclark.AdpterLists.AdapterListProcess;
 import br.com.john.kimberlyclark.AdpterLists.AdapterListUploads;
-import br.com.john.kimberlyclark.AdpterLists.ItemListProcess;
-import br.com.john.kimberlyclark.AdpterLists.ItemListUploads;
+import br.com.john.kimberlyclark.Classes.Uploads;
 import br.com.john.kimberlyclark.Services.AllActivitys;
 
 
@@ -80,10 +77,10 @@ public class UploadsFragment extends Fragment {
         values[1] = "Upload 02";
         values[2] = "Upload 03";
 
-        ArrayList<ItemListUploads> listUploads = new ArrayList<ItemListUploads>();
-        listUploads.add(new ItemListUploads("01", "pending", "Upload 01"));
-        listUploads.add(new ItemListUploads("01", "fail", "Upload 02"));
-        listUploads.add(new ItemListUploads("01", "success", "Upload 03"));
+        ArrayList<Uploads> listUploads = new ArrayList<Uploads>();
+        listUploads.add(new Uploads("01", "pending", "Upload 01"));
+        listUploads.add(new Uploads("01", "fail", "Upload 02"));
+        listUploads.add(new Uploads("01", "success", "Upload 03"));
 
 
         AdapterListUploads adapter = new AdapterListUploads(AllActivitys.mainActivity, values, listUploads);

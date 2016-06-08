@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import br.com.john.kimberlyclark.Classes.DetailsList;
 import br.com.john.kimberlyclark.DetailsProcessActivity;
-import br.com.john.kimberlyclark.ProcessFragment;
 import br.com.john.kimberlyclark.R;
 
 /**
@@ -23,11 +23,11 @@ public class AdapterListDetails extends ArrayAdapter<String> {
 
     private final Context context;
     private final String[] Values;
-    private ArrayList<ItemListDetails> list;
+    private ArrayList<DetailsList> list;
 
     ListView listView;
 
-    public AdapterListDetails(Context context, String[] values, ArrayList<ItemListDetails> list) {
+    public AdapterListDetails(Context context, String[] values, ArrayList<DetailsList> list) {
         super(context, R.layout.layout_row_details_process, values);
         this.context = context;
         Values = values;
